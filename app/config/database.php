@@ -85,11 +85,11 @@ return array(
 
 		'mongodb' => array(
 			'driver'	=> 'mongodb',
-			'host'      	=> 'dbh04.mongolab.com',
+			'host'      => 'dbh04.mongolab.com',
 			'port'		=> '27047',
-			'username'  	=> 'ferney',
-			'password'  	=> 'N3xx0gr0up*',
-			'database'  	=> 'proformasdb',
+			'username'  => 'ferney',
+			'password'  => 'N3xx0gr0up*',
+			'database'  => 'proformasdb',
 		),
 
 	),
