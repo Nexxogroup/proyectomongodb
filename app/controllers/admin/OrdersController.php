@@ -37,8 +37,8 @@ class Admin_OrdersController extends \BaseController {
 	public function create()
 	{
 		//return 'form para crear las ordenes';
-		//$customer = Session::get('idcustomer');//Customer::find($id);
-		return View::make('admin/orders/new_order');
+		$customer = Session::get('idcustomer');//Customer::find($id);
+		return View::make('admin/orders/new_order')->with('customer', $customer);
 		//return View::make('admin/forms/new_form', compact('customer', 'form_data', 'action'));
 	}
 

@@ -23,10 +23,9 @@ class Admin_ProductsController extends \BaseController {
 		return View::make('admin/products/new_product')->with('idOrder', $idOrder);
 	}
 
-	public function AddProducto()
+	public function addProducto()
 	{
-		$data = Input::all();
-		return $data;
+		return View::make('admin/products/new_product')->with('idOrder', Input::get('numero'));
 	}
 
 	/**

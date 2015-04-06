@@ -87,15 +87,9 @@ return array(
 			'driver'	=> 'mongodb',
 			'host'      => 'dbh04.mongolab.com',
 			'port'		=> '27047',
-<<<<<<< HEAD
-			'username'  => 'ferney',
+			'username'  => 'NexxoGroup',
 			'password'  => 'N3xx0gr0up*',
 			'database'  => 'proformasdb',
-=======
-			'username'  	=> 'NexxoGroup',
-			'password'  	=> 'N3xx0gr0up*',
-			'database'  	=> 'proformasdb',
->>>>>>> origin/master
 		),
 
 	),

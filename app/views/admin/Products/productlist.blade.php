@@ -5,10 +5,13 @@
 @section ('content')
 	<h1>Lista de productos Orden # {{$order}}</h1>
 
-	{{Form::open(array('route' => 'admin.orders.store', 'method' => 'POST', 'role' => 'form'))}}
+	{{Form::open(array('action' => 'Admin_ProductsController@addProducto'))}}
+	
 	{{Form::text('numero', $order)}}
 	{{Form::submit('Add Product', array('class'=>'btn btn-primary', 'name'=>'add'))}}
-	<a href="{{route('admin.orders.index')}}" class="btn btn-primary">Save</a>
+	
+	<a href="{{ route('admin.users.show', Session::get('idcustomer')) }}" class="btn btn-primary">Save</a>
+	
 	{{Form::close()}}
 
 	<br>

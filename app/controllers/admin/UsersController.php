@@ -30,7 +30,7 @@ class Admin_UsersController extends \BaseController {
 		$form_data 	= array('route' => array('admin.users.store'), 'method' => 'POST');
 		$action 	= 'Crear';
 		$accion		= 'New Customer';
-		return View::make('admin/users/new_cust', compact('customer', 'form_data', 'action', 'accion'));	// Cliente y admin
+		return View::make('admin/customers/new_cust', compact('customer', 'form_data', 'action', 'accion'));	// Cliente y admin
 	}
 
 

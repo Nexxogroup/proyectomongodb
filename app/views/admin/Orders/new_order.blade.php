@@ -13,7 +13,7 @@
 
 {{--evaluamos si existe algún error al ingresar la informacion y lo mostramos en pantalla --}}
 @include('errors', array('errors' => $errors))
-
+{{Form::text('customerId', $customer)}}
 	<div class="row">
 		<div class="form-group col-md-4">
 			{{Form::label('numero', 'Order number')}}
