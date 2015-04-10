@@ -83,12 +83,21 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mongodb' => array(
+		'mongodbSERVER' => array(
 			'driver'	=> 'mongodb',
 			'host'      => 'dbh04.mongolab.com',
 			'port'		=> '27047',
 			'username'  => 'NexxoGroup',
 			'password'  => 'N3xx0gr0up*',
+			'database'  => 'proformasdb',
+		),
+
+		'mongodb' => array(
+			'driver'	=> 'mongodb',
+			'host'      => 'localhost',
+			'port'		=> '27017',
+			'username'  => '',
+			'password'  => '',
 			'database'  => 'proformasdb',
 		),
 

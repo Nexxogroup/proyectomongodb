@@ -1,9 +1,9 @@
 @extends('layout')
 
-@section('title') Create PackingList @stop
+@section('title')PackingList @stop
 
 @section('content')
-	<h1>Create Packing List / Nueva Lista de Empaque</h1>
+	<h1>Nueva Lista de Empaque</h1>
 	<br>
 	{{ Form::open(array(''), array('role' => 'form'))}}
 	

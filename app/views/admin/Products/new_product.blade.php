@@ -4,7 +4,7 @@
 
 @section('content')
 
-	<h1>Add Product / Adicionar producto</h1>
+	<h1>Adicionar producto / Add Product</h1>
 	<br>
 	
 	{{Form::open(array('route'=>'admin.products.store', 'method'=>'POST'), array('role'=>'form'))}}
@@ -12,53 +12,53 @@
 	{{Form::text('idOrder', $idOrder)}}
 		<div class="row">
 			<div class="form-group col-md-4">
-				{{Form::label('producto', 'Product')}}
-				{{Form::text('producto', null, array('placeholder' => 'Producto', 'class' => 'form-control'))}}
+				{{Form::label('producto', 'Producto')}}
+				{{Form::text('producto', null, array('placeholder' => 'Product', 'class' => 'form-control'))}}
 			</div>
 			<div class="form-group col-md-4">
-				{{Form::label('item', 'Item #')}}
-				{{Form::text('item', null, array('placeholder' => 'Ref#', 'class' => 'form-control'))}}
+				{{Form::label('item', 'Ref #')}}
+				{{Form::text('item', null, array('placeholder' => 'Item #', 'class' => 'form-control'))}}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="form-group col-md-4">
-				{{Form::label('cantidad', 'Quantity')}}
-				{{Form::text('cantidad', null, array('placeholder' => 'Cantidad', 'class' => 'form-control'))}}
+				{{Form::label('cantidad', 'Cantidad')}}
+				{{Form::text('cantidad', null, array('placeholder' => 'Quantity', 'class' => 'form-control'))}}
 			</div>
 			<div class="form-group col-md-4">
-				{{Form::label('precio', 'Price / Precio (CNY)')}} 
+				{{Form::label('precio', 'Precio / Price (CNY)')}} 
 				{{Form::text('precio', null, array('placeholder' => '¥', 'class' => 'form-control'))}}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="form-group col-md-4">
-				{{Form::label('color', 'Colors')}}
-				{{Form::text('color', null, array('placeholder' => 'Colores', 'class' => 'form-control'))}}
+				{{Form::label('color', 'Colores')}}
+				{{Form::text('color', null, array('placeholder' => 'Colors', 'class' => 'form-control'))}}
 			</div>
 			<div class="form-group col-md-4">
-				{{Form::label('talla', 'Sizes')}}
-				{{Form::text('talla', null, array('placeholder' => 'Tallas', 'class' => 'form-control'))}}
+				{{Form::label('talla', 'Tallas')}}
+				{{Form::text('talla', null, array('placeholder' => 'Sizes', 'class' => 'form-control'))}}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="form-group col-md-8">
-				{{Form::label('remarks', 'Remarks')}}
-				{{Form::textarea('remarks', null, array('placeholder' => 'Comentarios del Producto', 'class' => 'form-control', 'rows' => '5'))}}
+				{{Form::label('remarks', 'Comentarios')}}
+				{{Form::textarea('remarks', null, array('placeholder' => 'Remarks', 'class' => 'form-control', 'rows' => '5'))}}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="form-group col-md-4">
 				{{-- form action="ejemplo.php" encrypte="multipart/form-data" method="post" --}}
-				{{Form::label('file', 'Load picture / Cargar Imagen')}}
+				{{Form::label('file', 'Cargar Imagen / Load picture')}}
 				{{Form::file('attachmentFile', array('type' => '', 'class' => 'form-control'))}}
 			</div>
 		</div>
 
-	{{ Form::button('Add', array('type'=>'submit', 'class'=>'btn btn-primary')) }}
+	{{ Form::button('Adicionar / Add', array('type'=>'submit', 'class'=>'btn btn-primary')) }}
 	
 	{{ Form::close() }}
 	

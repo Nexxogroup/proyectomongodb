@@ -3,68 +3,68 @@
 @section('title') Create Pack @stop
 
 @section('content')
-	<h1>Create Pack / Nuevo Packete</h1>
+	<h1>Nuevo Paquete / Create Pack</h1>
 	<br>
 	{{ Form::open(array(''), array('role' => 'form'))}}
 	<div class="row">
 		<div class="form-group col-md-4">
-			{{Form::label('pack', 'No Pack')}}
-			{{Form::number('pack', null, array('placeholder' => 'Numero', 'class' => 'form-control'))}}
+			{{Form::label('pack', 'Numero')}}
+			{{Form::number('pack', null, array('placeholder' => 'No Pack', 'class' => 'form-control'))}}
 		</div>
 		<div class="form-group col-md-4">
-			{{Form::label('barcode', 'Barcode')}}
-			{{Form::text('barcode', null, array('placeholder' => 'Codigo de barras', 'class' => 'form-control'))}}
+			{{Form::label('barcode', 'Codigo de barras')}}
+			{{Form::text('barcode', null, array('placeholder' => 'Barcode', 'class' => 'form-control'))}}
 		</div>
 	</div>
 	<div class="row">
 		<div class="form-group col-md-4">
-			{{Form::label('date', 'Date')}}
-			{{Form::text('date', null, array('placeholder' => 'Fecha', 'class' => 'form-control'))}}
+			{{Form::label('date', 'Fecha')}}
+			{{Form::text('date', null, array('placeholder' => 'Date', 'class' => 'form-control'))}}
 		</div>
 		<div class="form-group col-md-4">
-			{{Form::label('name', 'Shipping Name')}}
-			{{Form::text('name', null, array('placeholder' => 'Nombre de envio', 'class' => 'form-control'))}}
+			{{Form::label('name', 'Nombre de envio')}}
+			{{Form::text('name', null, array('placeholder' => 'Shipping Name', 'class' => 'form-control'))}}
 		</div>
 	</div>
 	<div class="row">
 		<div class="form-group col-md-4">
-			{{Form::label('item', 'Item #')}}
-			{{Form::number('item', null, array('placeholder' => 'Ref #', 'class' => 'form-control'))}}
+			{{Form::label('item', 'Ref #')}}
+			{{Form::number('item', null, array('placeholder' => 'Item #', 'class' => 'form-control'))}}
 		</div>
 		<div class="form-group col-md-4">
-			{{Form::label('quantity', 'Quantity')}}
-			{{Form::number('quantity', null, array('placeholder' => 'Cantidad', 'class' => 'form-control'))}}
+			{{Form::label('quantity', 'Cantidad')}}
+			{{Form::number('quantity', null, array('placeholder' => 'Quantity', 'class' => 'form-control'))}}
 		</div>
 	</div>
 	<div class="row">
 		<div class="form-group col-md-4">
-			{{Form::label('description', 'Description')}}
-			{{Form::text('description', null, array('placeholder' => 'Descripcion', 'class' => 'form-control'))}}
+			{{Form::label('description', 'Descripcion')}}
+			{{Form::text('description', null, array('placeholder' => 'Description', 'class' => 'form-control'))}}
 		</div>
 		<div class="form-group col-md-4">
-			{{Form::label('order', 'Order')}}
-			{{Form::number('order', null, array('placeholder' => 'Orden', 'class' => 'form-control'))}}
+			{{Form::label('order', 'Orden')}}
+			{{Form::number('order', null, array('placeholder' => 'Order', 'class' => 'form-control'))}}
 		</div>
 	</div>
 	<div class="row">
 		<div class="form-group col-md-2">
-			{{Form::label('lenght', 'Lenght')}}
-			{{Form::number('lenght', null, array('placeholder' => 'Largo', 'class' => 'form-control'))}}
+			{{Form::label('lenght', 'Largo')}}
+			{{Form::number('lenght', null, array('placeholder' => 'Lenght', 'class' => 'form-control'))}}
 		</div>
 		<div class="form-group col-md-2">
-			{{Form::label('height', 'Height')}}
-			{{Form::number('height', null, array('placeholder' => 'Ancho', 'class' => 'form-control'))}}
+			{{Form::label('height', 'Ancho')}}
+			{{Form::number('height', null, array('placeholder' => 'Height', 'class' => 'form-control'))}}
 		</div>
 		<div class="form-group col-md-2">
-			{{Form::label('width', 'Width')}}
-			{{Form::number('width', null, array('placeholder' => 'Alto', 'class' => 'form-control'))}}
+			{{Form::label('width', 'Alto')}}
+			{{Form::number('width', null, array('placeholder' => 'Width', 'class' => 'form-control'))}}
 		</div>
 		<div class="form-group col-md-2">
-			{{Form::label('weight', 'Weight')}}
-			{{Form::number('weight', null, array('placeholder' => 'Peso', 'class' => 'form-control'))}}
+			{{Form::label('weight', 'Peso')}}
+			{{Form::number('weight', null, array('placeholder' => 'Weight', 'class' => 'form-control'))}}
 		</div>
 	</div>
-	{{Form::button('Cancel', array('type'=>'submit', 'class'=>'btn btn-info'))}}
-	{{Form::button('Save', array('type'=>'submit', 'class'=>'btn btn-primary'))}}
+	{{Form::button('Cancelar / Cancel', array('type'=>'submit', 'class'=>'btn btn-info'))}}
+	{{Form::button('Guardar / Save', array('type'=>'submit', 'class'=>'btn btn-primary'))}}
 	{{ Form::close()}}
 @stop
