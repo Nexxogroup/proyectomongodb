@@ -10,11 +10,12 @@
 	<div class="alert alert-danger">{{Session::get('mensaje_error')}}</div>
 @endif
 
-<div>
+<div class = 'page-header'>
+	<img src="assets/images/logotipo.png" alt="logotipo" class="img-thumbnail" ><h2 class="text-center">Bienvenido a nuestra plataforma</h2>
 		
 	{{Form::open(array('url' => '/login', 'class' => 'form-signin', 'role' => 'form'))}}
 
-		<h2 class="form-signin-heading" style="text-align:center">Ingrese sus datos de usuario<br></h2> <h4 class="form-signin-heading" style="text-align:center" >Input your information</h4>
+		<h3 class="form-signin-heading" style="text-align:center">Ingrese sus datos de usuario<br></h3> <h4 class="form-signin-heading" style="text-align:center" >Input your information</h4>
 		<br>
 		<br>
 		<div class="row">
