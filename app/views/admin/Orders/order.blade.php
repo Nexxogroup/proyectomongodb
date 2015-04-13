@@ -1,10 +1,10 @@
 @extends ('layout')
 
-@section ('title') Order details / Detalle de orden @stop
+@section ('title') Order @stop
 
 @section ('content') 
 
-	<h1>Order details / Detalle de orden<a href="/proyectomongodb/public/logout" class="btn btn-danger">Sign out / Cerrar sesión</a></h1>
+	<h1>Order details / Detalle de orden <p><a href="/proyectomongodb/public/logout" class="btn btn-danger">Sign out / Cerrar sesión</a></p></h1>
 
 	<a href="{{ route('admin.orders.index') }}" class="btn btn-primary"> << Back / Atras</a>
 		
