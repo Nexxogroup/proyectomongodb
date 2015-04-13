@@ -6,7 +6,7 @@
 
 	<h1>Detalle del cliente / Customer detail <p><a href="/proyectomongodb/public/logout" class="btn btn-danger">Cerrar sesión / Sign out</a></p></h1>
 
-	{{ Form::text('customerId', $customer->id)}}
+	{{ Form::hidden('customerId', $customer->id)}}
 	<table class="table table-stirped" style="width: 900px">
 		<tr>
 			<th>Nombre de envío/Shipping Name</th>
@@ -23,11 +23,9 @@
 		<br>
 	</table>
 	<br>
-	<!--a href="/proyectomongodb/public/admin/orderlist/{{{$customer->id}}}" class="btn btn-primary">Show orders / Ver ordenes</a-->
-	<!--a href="{{ route('admin.orders.index') }}" class="btn btn-primary">Show orders / Ver ordenes</a-->
-	<a href="{{ route('admin.orders.create') }}" class="btn btn-primary">Nueva orden / New order</a>
-	<br>
-	<br>
+	
+	<p><a href="{{ route('admin.orders.create') }}" class="btn btn-primary">Nueva orden / New order</a></p>
+	
 	<table class="table table-stirped" style="width: 900px">
 		<tr>
 			<th>Número</th>

@@ -37,7 +37,8 @@ class Admin_OrdersController extends \BaseController {
 	public function create()
 	{
 		//return 'form para crear las ordenes';
-		$customer = Session::get('idcustomer');//Customer::find($id);
+		$id = Session::get('idcustomer');
+		$customer = Customer::find($id);
 		return View::make('admin/orders/new_order')->with('customer', $customer);
 		//return View::make('admin/forms/new_form', compact('customer', 'form_data', 'action'));
 	}
@@ -55,7 +56,6 @@ class Admin_OrdersController extends \BaseController {
 	 */
 	public function store()
 	{
-		if (Input::has('add')) {
 			$idOrder = Input::get('numero');
 			//obtenemos la data enviada por el usuario
 			$dataOrder = Input::all();
@@ -67,28 +67,11 @@ class Admin_OrdersController extends \BaseController {
 				$order->fill($dataOrder);
 				// y guardamos la orden
 				$order->save();
-				return View::make('admin/products/new_product', array('order'=>$dataOrder))->with('idOrder', $idOrder);
+				
+				return View::make('admin/products/new_product')->with('dataOrder', $dataOrder);//, array('order'=>$dataOrder));
 			}else{
 				//en caso de error regresa a la accion crear con los errores encontrados
 				return Redirect::route('admin.orders.create')->withInput()->withErrors($order->errors);
-			}
-		}
-		//creamos un nuevo objeto para nuestro usuario
-		$order = new Order;
-		//obtenemos la data enviada por el usuario
-		$data = Input::all(); // retorna arreglo con todos los datos ingresados
-		//revisamos si la data es valida
-			if ($order->isValid($data)) {
-			//si lo es se la asignamos a la orden
-			$order->fill($data);
-			// y guardamos la orden
-			$order->save();
-			//devolvemos la redireccion al cliente dueño de la orden
-			return Redirect::route('admin.orders.index');
-			//return Redirect::route('admin.products.nuevaOrden', array($order->id));
-			}else{
-			//en caso de error regresa a la accion crear con los errores encontrados
-			return Redirect::route('admin.orders.create')->withInput()->withErrors($order->errors);
 			}
 	}
 

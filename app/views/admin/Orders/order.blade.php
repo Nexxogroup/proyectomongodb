@@ -4,17 +4,17 @@
 
 @section ('content') 
 
-	<h1>Order details / Detalle de orden <p><a href="/proyectomongodb/public/logout" class="btn btn-danger">Sign out / Cerrar sesión</a></p></h1>
-
-	<a href="{{ route('admin.orders.index') }}" class="btn btn-primary"> << Back / Atras</a>
-		
+	<h1>Detalle de orden / Order detail<p><a href="/proyectomongodb/public/logout" class="btn btn-danger">Cerrar sesión / Sign out</a></p></h1>
+	<p><a href="{{ route('admin.users.show', $order->customerId) }}" class="btn btn-primary"> << Atras / Back</a></p>
+	<br>
+	{{Form::text('customerId', $order->customerId)}}
 	<table class="table table-stirped" style="width: 900px">
 		<tr>
-			<th>Order</th>
-			<th>Delivery Date</th>
-			<th>Supplier</th>
-			<th>Status</th>
-			<th>Remarks</th>
+			<th>Orden/ Order</th>
+			<th>Fecha de entrega / Delivery Date</th>
+			<th>Proveedor / Supplier</th>
+			<th>Estado / Status</th>
+			<th>Comentarios / Remarks</th>
 		</tr>
 		<br>
 		<tr>
@@ -24,17 +24,16 @@
 			<td>{{ $order->status}}</td>
 			<td>{{ $order->descripcion }}</td>
 		</tr>
-		
-		<br>
 	</table>
-	
+	<br>
+	<br>
 	<table class="table table-sitrped" style="width: 900px">
 		<tr>
-			<th>Product</th>
-			<th>Item</th>
-			<th>Quantity</th>
-			<th>¥ Unit Price</th>
-			<th>¥ Total Price</th>
+			<th>Producto / Product</th>
+			<th>Referencia / Item</th>
+			<th>Cantidad / Quantity</th>
+			<th>¥ Valora unidad / Unit Price</th>
+			<th>¥ Valor total / Total Price</th>
 			<!--th>Actions</th-->
 		</tr>
 		@foreach($products as $product)

@@ -1,19 +1,18 @@
 @extends('layout')
 
-@section('title') Lista de Ordenes / Orders List @stop
+@section('title') Orders @stop
 
 @section('content')
 
-	<h1>Lista de Ordenes / Orders List
-	<a href="/proyectomongodb/public/logout" class="btn btn-danger">Sign out / Cerrar sesión</a></h1>
-	{{ Form::text('customersession', Session::get('idcustomer'))}}
+	<h1>Lista de Ordenes / Orders List <p><a href="/proyectomongodb/public/logout" class="btn btn-danger">Sign out / Cerrar sesión</a></p></h1>
+	{{ Form::hidden('customersession', Session::get('idcustomer'))}}
 	<p>
 		<a href="{{ route('admin.users.show', array(Session::get('idcustomer'))) }}" class="btn btn-primary"> << Back / Atras</a>
 		<a href="{{ route('admin.orders.create') }}" class="btn btn-primary">Create Order / Crear Orden</a>
 		
 	</p>
 
-	<table class="table table-stirped">
+	<table class="table table-stirped" style="width: 900px">
 		<tr>
 			<th>Order number</th>
 			<th>Supplier</th>
@@ -23,7 +22,6 @@
 			<th>Balance</th>
 			<th>Delivery date</th>
 			<th>PL</th>
-			<th>FAC</th>
 			<th>Actions</th>
 		</tr>
 		<tr>
@@ -35,7 +33,6 @@
 			<th>Saldo</th>
 			<th>Fecha de entrega</th>
 			<th>PL</th>
-			<th>FAC</th>
 			<th>Acciones</th>
 		</tr>
 		@if($orders)
@@ -48,7 +45,6 @@
 				<td></td>
 				<td></td>
 				<td>{{ $order->deliveryDate }}</td>
-				<td></td>
 				<td></td>
 				<td><a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-info">Detalle</a></td>
 			</tr>

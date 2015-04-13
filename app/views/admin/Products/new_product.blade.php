@@ -8,8 +8,7 @@
 	<br>
 	
 	{{Form::open(array('route'=>'admin.products.store', 'method'=>'POST'), array('role'=>'form'))}}
-	
-	{{Form::text('idOrder', $idOrder)}}
+	{{Form::hidden('idOrder', $dataOrder['numero'])}}
 		<div class="row">
 			<div class="form-group col-md-4">
 				{{Form::label('producto', 'Producto')}}
@@ -52,7 +51,6 @@
 
 		<div class="row">
 			<div class="form-group col-md-4">
-				{{-- form action="ejemplo.php" encrypte="multipart/form-data" method="post" --}}
 				{{Form::label('file', 'Cargar Imagen / Load picture')}}
 				{{Form::file('attachmentFile', array('type' => '', 'class' => 'form-control'))}}
 			</div>
