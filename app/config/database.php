@@ -83,7 +83,7 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mongodbSERVER' => array(
+		'mongodb' => array(
 			'driver'	=> 'mongodb',
 			'host'      => 'dbh04.mongolab.com',
 			'port'		=> '27047',
@@ -92,7 +92,7 @@ return array(
 			'database'  => 'proformasdb',
 		),
 
-		'mongodb' => array(
+		'mongodbLocal' => array(
 			'driver'	=> 'mongodb',
 			'host'      => 'localhost',
 			'port'		=> '27017',
