@@ -40,7 +40,6 @@ class Admin_OrdersController extends \BaseController {
 		$id = Session::get('idcustomer');
 		$customer = Customer::find($id);
 		return View::make('admin/orders/new_order')->with('customer', $customer);
-		//return View::make('admin/forms/new_form', compact('customer', 'form_data', 'action'));
 	}
 
 	public function actionPackingList()
@@ -56,19 +55,19 @@ class Admin_OrdersController extends \BaseController {
 	 */
 	public function store()
 	{
-			$idOrder = Input::get('numero');
-			//obtenemos la data enviada por el usuario
-			$dataOrder = Input::all();
 			//creamos un nuevo objeto para nuestro usuario
 			$order = new Order;
+			//obtenemos la data enviada por el usuario
+			$dataOrder = Input::all();
 			//revisamos si la data es valida
 			if ($order->isValid($dataOrder)) {
 				//si lo es se la asignamos a la orden
 				$order->fill($dataOrder);
 				// y guardamos la orden
-				$order->save();
-				
-				return View::make('admin/products/new_product')->with('dataOrder', $dataOrder);//, array('order'=>$dataOrder));
+				//$order->save();
+				//enviamos al formulario de producto con el aray de datos de a orden
+				//return View::make('admin/products/new_product')->with('dataOrder', $dataOrder);
+				return Redirect::route('admin.products.create')->with('dataOrder', $dataOrder);
 			}else{
 				//en caso de error regresa a la accion crear con los errores encontrados
 				return Redirect::route('admin.orders.create')->withInput()->withErrors($order->errors);
@@ -92,7 +91,7 @@ class Admin_OrdersController extends \BaseController {
 			App::abort(404);
 		}
 		//en caso que si exista, envia la información a la vista del detalle (customer)
-		$products = Product::where('idOrder', '=', $order->numero)->get();
+		$products = Product::where('idOrder', '=', $order->numero)->paginate();
 		return View::make('admin/orders/order', array('order'=>$order, 'products'=>$products));//)->with('order', $order);
 		//return 'aqui mostramos la info de la orden';
 	}

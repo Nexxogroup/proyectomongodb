@@ -8,7 +8,7 @@
 	<br>
 	
 	{{Form::open(array('route'=>'admin.products.store', 'method'=>'POST'), array('role'=>'form'))}}
-	{{Form::hidden('idOrder', $dataOrder['numero'])}}
+	{--{Form::text('idOrder', $dataOrder['numero'])}--}
 		<div class="row">
 			<div class="form-group col-md-4">
 				{{Form::label('producto', 'Producto')}}
@@ -23,11 +23,11 @@
 		<div class="row">
 			<div class="form-group col-md-4">
 				{{Form::label('cantidad', 'Cantidad')}}
-				{{Form::text('cantidad', null, array('placeholder' => 'Quantity', 'class' => 'form-control'))}}
+				{{Form::number('cantidad', null, array('placeholder' => 'Quantity', 'class' => 'form-control'))}}
 			</div>
 			<div class="form-group col-md-4">
 				{{Form::label('precio', 'Precio / Price (CNY)')}} 
-				{{Form::text('precio', null, array('placeholder' => '¥', 'class' => 'form-control'))}}
+				{{Form::number('precio', null, array('placeholder' => '¥', 'class' => 'form-control'))}}
 			</div>
 		</div>
 

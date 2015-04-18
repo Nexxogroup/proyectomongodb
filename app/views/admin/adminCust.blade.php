@@ -7,7 +7,7 @@
 	<h1>Detalle del cliente / Customer details</h1>
 
 	<!--a href="/proyectomongodb/public/logout" class="btn btn-primary">Sign out / Cerrar sesión</a-->
-	{{ Form::text('customerId', $customer->id)}}
+	{{ Form::hidden('customerId', $customer->id)}}
 	<!--a href="{}" class="btn btn-primary"> << Back / Atras</a-->
 	<td><a href="{{ route('admin.users.index') }}" class="btn btn-primary"> << Atras / Back</a></td>
 	<table class="table table-stirped" style="width: 900px">
@@ -29,16 +29,26 @@
 	
 	<a href="{{ route('admin.orders.create') }}" class="btn btn-primary">New order / Nueva orden</a-->
 	<br>
-	<table class="table table-stirped">
+	<table class="table table-stirped" style="width: 900px">
 		<tr>
-			<th>Numero / Order number</th>
-			<th>Proveedor / Supplier</th>
-			<th>Estado / Status</th>
-			<th>Costo / Cost</th>
-			<th>Deposito / Deposit</th>
-			<th>Fecha de entrega / Delivery date</th>
-			<th>PL</th>
-			<th>Acciones / Actiones</th>
+			<th>Numero</th>
+			<th>Proveedor</th>
+			<th>Estado</th>
+			<th>Costo</th>
+			<th>Deposito</th>
+			<th>Fecha de entrega</th>
+			<th>PackingList</th>
+			<th>Acciones</th>
+		</tr>
+		<tr>
+			<th>Order number</th>
+			<th>Supplier</th>
+			<th>Status</th>
+			<th>Cost</th>
+			<th>Deposit</th>
+			<th>Delivery date</th>
+			<th>PackingList</th>
+			<th>Actiones</th>
 		</tr>
 		@if($orders)
 			@foreach($orders as $order)
@@ -50,8 +60,6 @@
 				<td></td>
 				<td>{{ $order->deliveryDate }}</td>
 				<td></td>
-				<td></td>
-				<!--td><a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-info">Detalle</a></td-->
 				<td><a href="{{ route('admin.orders.edit', $order->id) }}" class="btn btn-primary">Editar</a></td>
 
 			</tr>

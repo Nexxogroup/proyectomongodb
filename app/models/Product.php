@@ -20,7 +20,7 @@ class Product extends Eloquent{
 	//indicamos los campos llenable en este modelo
 	protected $fillable = array('idOrder', 'producto', 'item', 'cantidad', 'precio', 'color', 'talla', 'remarks', 'attachmentFile');
 	//cuantos elementos por pagina
-	protected $perPage = 5;
+	protected $perPage = 10;
 
 	public function isValid($data){
 		$rules = array(

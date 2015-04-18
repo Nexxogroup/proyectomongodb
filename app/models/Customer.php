@@ -30,7 +30,7 @@ class Customer extends Eloquent implements UserInterface, RemindableInterface{
 	//indicamos a laravel cuales campos son fillables en este modelo
 	protected $fillable = array('email', 'shippingName', 'password', 'rest');
 	//indicador de elementos por pagina (paginacion)
-	protected $perPage = 5;
+	protected $perPage = 10;
 
 	//declaramos la relacion uno a muchos con la siguiente función.
 	public function orders(){

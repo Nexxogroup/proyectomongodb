@@ -23,7 +23,7 @@ class Order extends Eloquent {
 	//indicamos a laravel cuales campos son fillables en este modelo
 	protected $fillable = array('numero', 'deliveryDate', 'proveedor', 'status', 'descripcion', 'customerId');
 	//indicador de elementos por pagina (paginacion)
-	protected $perPage = 2;
+	protected $perPage = 10;
 
 	//declaramos la relacion uno a muchos con la siguiente funcion
 	public function customer(){

@@ -47,6 +47,7 @@
 		</tr>
 		@endforeach
 	</table>
+	{{ $products->links() }}
 	<br>
 	<br>
 @stop

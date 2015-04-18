@@ -55,7 +55,7 @@
 				<td>{{ $order->numero }}</td>
 				<td>{{ $order->proveedor }}</td>
 				<td>{{ $order->status }}</td>
-				<td></td>
+				<td><?php echo "string"; ?></td>
 				<td></td>
 				<td></td>
 				<td>{{ $order->deliveryDate }}</td>
@@ -63,6 +63,6 @@
 				<td><a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-info">Detalle</a></td>
 			</tr>
 			@endforeach
-		
 	</table>
+	{{ $orders->links() }}
 @stop

@@ -78,7 +78,7 @@ class Admin_UsersController extends \BaseController {
 			App::abort(404);
 		}
 		//en caso que si exista, envia la información a la vista del detalle (customer)
-		$orders = Order::where('customerId', '=', $id)->get();
+		$orders = Order::where('customerId', '=', $id)->paginate();
 		return View::make('admin/customers/customer', array('customer' => $customer, 'orders' => $orders));
 		//return View::make('admin/customers/customer')->with('customer', $customer);
 	}
