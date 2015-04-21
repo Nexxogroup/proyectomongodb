@@ -8,7 +8,8 @@
 	<br>
 	
 	{{Form::open(array('route'=>'admin.products.store', 'method'=>'POST'), array('role'=>'form'))}}
-	{--{Form::text('idOrder', $dataOrder['numero'])}--}
+	@include('errors', array('errors' => $errors))
+	{{Form::hidden('idOrder', Input::get('numero'))}}
 		<div class="row">
 			<div class="form-group col-md-4">
 				{{Form::label('producto', 'Producto')}}

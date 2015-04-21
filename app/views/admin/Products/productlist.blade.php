@@ -3,28 +3,25 @@
 @section ('title') Lista de Productos @stop
 
 @section ('content')
-	<h2>Lista de productos Orden # {{$order}}</h2>
-	<h3>Product List Order # {{$order}}</h3>
-	
-	{{Form::open(array('action' => 'Admin_ProductsController@addProducto'))}}
-	
-	{{Form::text('numero', $order)}}
-	{{Form::submit('Adicionar / Add Product', array('class'=>'btn btn-primary', 'name'=>'add'))}}
-	
-	<a href="{{ route('admin.users.show', Session::get('idcustomer')) }}" class="btn btn-primary">Guardar / Save</a>
+	<h2>Lista de productos Orden # {{$order->numero}}</h2>
+	<h3>Product List Order # {{$order->numero}}</h3>
+	{{Form::hidden('numero', $order->numero)}}
+
+	<p><a href="{{ route('admin.products.create', array('numero' =>  $order->numero)) }}" class="btn btn-primary">Adicionar / Add Product</a> <a href="{{ route('admin.users.show', Session::get('idcustomer')) }}" class="btn btn-primary">Guardar / Save</a></p>
 	
 	{{Form::close()}}
 
 	<br>
-	<table class="table table-stirped">
+	<table class="table table-stirped" style="width: 900px">
 		<tr>
 			<th>Producto / Product</th>
 			<th>Ref# / Item#</th>
 			<th>Cantidad / Quantity</th>
 			<th>Precio / Price</th>
+			<th>Total / Total Price</th>
 			<th>Color / Color</th>
 			<th>Talla / Size</th>
-			<th>Accion / Action</th>
+			
 		</tr>
 		@foreach($productlist as $productos)
 		<tr>
@@ -32,11 +29,14 @@
 			<td>{{ $productos->item }}</td>
 			<td>{{ $productos->cantidad }}</td>
 			<td>{{ $productos->precio }}</td>
+			<td>{{ $productos->totalproducto}}</td>
 			<td>{{ $productos->color }}</td>
 			<td>{{ $productos->talla }}</td>
-			<td></td>
+			
 		</tr>
 		@endforeach
 	</table>
+	{{ $productlist->links() }}
 	<br>
 @stop
+	

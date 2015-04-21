@@ -4,7 +4,7 @@
 
 @section ('content') 
 
-	<h1>Detalle del cliente / Customer detail <p><a href="/proyectomongodb/public/logout" class="btn btn-danger">Cerrar sesión / Sign out</a></p></h1>
+	<h1>Detalle del cliente / Customer detail <p><a href="./logout" class="btn btn-danger">Cerrar sesión / Sign out</a></p></h1>
 
 	{{ Form::hidden('customerId', $customer->id)}}
 	<table class="table table-stirped" style="width: 900px">
@@ -55,9 +55,9 @@
 				<td>{{ $order->numero }}</td>
 				<td>{{ $order->proveedor }}</td>
 				<td>{{ $order->status }}</td>
-				<td><?php echo "string"; ?></td>
+				<td><?php echo "costo de la orden"; ?></td>
 				<td></td>
-				<td></td>
+				<td>{{ $customer->rest }}</td>
 				<td>{{ $order->deliveryDate }}</td>
 				<td></td>
 				<td><a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-info">Detalle</a></td>

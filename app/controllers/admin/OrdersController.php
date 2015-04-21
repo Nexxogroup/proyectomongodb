@@ -64,10 +64,10 @@ class Admin_OrdersController extends \BaseController {
 				//si lo es se la asignamos a la orden
 				$order->fill($dataOrder);
 				// y guardamos la orden
-				//$order->save();
-				//enviamos al formulario de producto con el aray de datos de a orden
-				//return View::make('admin/products/new_product')->with('dataOrder', $dataOrder);
-				return Redirect::route('admin.products.create')->with('dataOrder', $dataOrder);
+				$order->save();
+				//enviamos al formulario de producto con el array de datos de la orden
+				$numero = Input::get('numero');
+				return Redirect::route('admin.products.create', array('numero' => $numero));
 			}else{
 				//en caso de error regresa a la accion crear con los errores encontrados
 				return Redirect::route('admin.orders.create')->withInput()->withErrors($order->errors);

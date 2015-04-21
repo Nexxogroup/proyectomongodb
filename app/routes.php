@@ -42,7 +42,7 @@ Route::get('admin/createpl', 'Admin_OrdersController@actionPackingList');
 
 Route::resource('admin/orders', 'Admin_OrdersController');
 
-Route::get('admin/addproduct', 'Admin_ProductsController@addProducto');
+Route::get('admin/addProducto', 'Admin_ProductsController@addProducto');
 
 Route::get('admin/products/new_product', 'Admin_ProductsController@create');
 

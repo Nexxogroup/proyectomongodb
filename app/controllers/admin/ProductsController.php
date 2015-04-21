@@ -12,7 +12,6 @@ class Admin_ProductsController extends \BaseController {
 		return View::make('admin/products/list');
 	}
 
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -20,18 +19,14 @@ class Admin_ProductsController extends \BaseController {
 	 */
 	public function create()
 	{
-		
-		return $dataOrder; ///View::make('admin/products/new_product');//->with('dataOrder', $dataOrder);
+		$numero = Input::get('numero');
+		$dataOrder = Order::where('numero', '=', $numero)->get();
+		return View::make('admin/products/new_product', $dataOrder);
 	}
 
-	public function addProducto()
+	public function addProducto($numero)
 	{
-		return View::make('admin/products/new_product')->with('idOrder', Input::get('numero'));
-	}
-
-	public function crearOrden()
-	{
-		return View::make('admin/products/new_product')->with('dataOrder', $dataOrder);
+		return "ay vamos";//View::make('admin/products/new_product')->with('idOrder', $numero);
 	}
 
 	/**
@@ -47,17 +42,19 @@ class Admin_ProductsController extends \BaseController {
 		$data = Input::all();
 		//revisamos si la data es valida
 		if ($product->isValid($data)) {
-			//si es valida se la asignamos al cliente:
 			//generamos y agregamos el atributo $totalproducto al arreglo $data
 			$totalproducto = $data["cantidad"]*$data["precio"];
 			$data["totalproducto"] = "$totalproducto";
+			
+			//si es valida se la asignamos al cliente:
 			$product->fill($data);
 			//y lo guardamos
 			$product->save();
-			$order = Order::where('numero', '=', $product->idOrder)->get();
-			$productlist = Product::where('idOrder', '=', $product->idOrder)->get();
+			
+			$order = Order::where('numero', '=', $product->idOrder)->first();
+			$productlist = Product::where('idOrder', '=', $product->idOrder)->paginate();
 			//retornamos la vista de la accion show para mostrar la información guardada
-			return View::make('admin/products/productlist', array('productlist' => $productlist))->with('order', $product->idOrder);
+			return View::make('admin/products/productlist', array('productlist' => $productlist, 'order' => $order));//)->with('order', $product->idOrder);
 		}else {
 			//si contiene error, regresara a la vista de la accion create con los datos y errores encontrados
 			return Redirect::route('admin.products.create')->with('order', $product->idOrder)->withInput()->withErrors($product->errors);
