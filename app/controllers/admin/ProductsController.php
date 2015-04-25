@@ -36,7 +36,12 @@ class Admin_ProductsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//primero creamos un nuevo objeto para nuestro producto
+		return  var_dump(Input::file('attachmentFile'));
+		//http://clivern.com/how-to-create-file-upload-with-laravel/
+		//http://laraveles.com/docs/4.2/requests
+
+
+		/*//primero creamos un nuevo objeto para nuestro producto
 		$product = new Product;
 		//recibimos la data enviada por el usuario en una nueva variable
 		$data = Input::all();
@@ -46,6 +51,8 @@ class Admin_ProductsController extends \BaseController {
 			$totalproducto = $data["cantidad"]*$data["precio"];
 			$data["totalproducto"] = "$totalproducto";
 			
+			$grid = DB::getGridFS();
+			$imagen_id = $grid->storeFile($data['attachmentFile']);	
 			//si es valida se la asignamos al cliente:
 			$product->fill($data);
 			//y lo guardamos
@@ -58,7 +65,7 @@ class Admin_ProductsController extends \BaseController {
 		}else {
 			//si contiene error, regresara a la vista de la accion create con los datos y errores encontrados
 			return Redirect::route('admin.products.create')->with('order', $product->idOrder)->withInput()->withErrors($product->errors);
-		}
+		}*/
 	}
 
 

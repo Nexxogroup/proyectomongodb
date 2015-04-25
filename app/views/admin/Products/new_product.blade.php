@@ -51,14 +51,20 @@
 		</div>
 
 		<div class="row">
-			<div class="form-group col-md-4">
+			<div class="form-group col-md-8">
 				{{Form::label('file', 'Cargar Imagen / Load picture')}}
-				{{Form::file('attachmentFile', array('type' => '', 'class' => 'form-control'))}}
+				{{Form::file('attachmentFile', array('id' => 'image', 'accept' => 'image/*', 'class' => 'form-control'))}}
 			</div>
 		</div>
-
+		
 	{{ Form::button('Adicionar / Add', array('type'=>'submit', 'class'=>'btn btn-primary')) }}
 	
 	{{ Form::close() }}
 	
-@stop 
+@stop
+<!--script type="text/javascript">
+	function mypath(){
+		var x = document.getElementById("image").value;
+		document.getElementById("path").innerHTML = X;
+	}
+</script-->

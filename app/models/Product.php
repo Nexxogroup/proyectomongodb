@@ -21,6 +21,8 @@ class Product extends Eloquent{
 	protected $fillable = array('idOrder', 'producto', 'item', 'cantidad', 'precio', 'color', 'talla', 'remarks', 'attachmentFile', 'totalproducto');
 	//cuantos elementos por pagina
 	protected $perPage = 10;
+	//se asigna la propiedad de grid para almacenar las imagenes
+	//protected $gridFs = array('imagenproducto');
 
 	public function isValid($data){
 		$rules = array(

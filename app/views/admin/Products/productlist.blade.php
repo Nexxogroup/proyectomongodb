@@ -3,11 +3,12 @@
 @section ('title') Lista de Productos @stop
 
 @section ('content')
-	<h2>Lista de productos Orden # {{$order->numero}}</h2>
-	<h3>Product List Order # {{$order->numero}}</h3>
+	<p><h1 style="font-family:Verdana;">Lista de productos Orden # {{$order->numero}}</h1>
+		<h2 style="font-family:Verdana;">Product List Order # {{$order->numero}}</h2></p>
 	{{Form::hidden('numero', $order->numero)}}
 
-	<p><a href="{{ route('admin.products.create', array('numero' =>  $order->numero)) }}" class="btn btn-primary">Adicionar / Add Product</a> <a href="{{ route('admin.users.show', Session::get('idcustomer')) }}" class="btn btn-primary">Guardar / Save</a></p>
+	<p><a href="{{ route('admin.products.create', array('numero' =>  $order->numero)) }}" class="btn btn-primary">Adicionar / Add Product</a>
+	<a href="{{ route('admin.users.show', Session::get('idcustomer')) }}" class="btn btn-primary">Guardar / Save</a></p>
 	
 	{{Form::close()}}
 
@@ -32,7 +33,6 @@
 			<td>{{ $productos->totalproducto}}</td>
 			<td>{{ $productos->color }}</td>
 			<td>{{ $productos->talla }}</td>
-			
 		</tr>
 		@endforeach
 	</table>

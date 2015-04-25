@@ -4,17 +4,17 @@
 
 @section ('content') 
 
-	<h1>Detalle de orden / Order detail<p><a href="/proyectomongodb/public/logout" class="btn btn-danger">Cerrar sesión / Sign out</a></p></h1>
+	<h1 style="Font-family:Verdana;">Detalle de orden / Order detail<p><a href="{{ URL::to('logout') }}" class="btn btn-danger">Cerrar sesión / Sign out</a></p></h1>
 	<p><a href="{{ route('admin.users.show', $order->customerId) }}" class="btn btn-primary"> << Atras / Back</a></p>
-	<br>
-	{{Form::text('customerId', $order->customerId)}}
-	<table class="table table-stirped" style="width: 900px">
+	
+	{{Form::hidden('customerId', $order->customerId)}}
+	<table class="table table-striped" style="width: 900px">
 		<tr>
-			<th>Orden/ Order</th>
-			<th>Fecha de entrega / Delivery Date</th>
-			<th>Proveedor / Supplier</th>
-			<th>Estado / Status</th>
-			<th>Comentarios / Remarks</th>
+			<th>Orden<br>Order</th>
+			<th>Fecha de entrega<br>Delivery Date</th>
+			<th>Proveedor<br>Supplier</th>
+			<th>Estado<br>Status</th>
+			<th>Comentarios<br>Remarks</th>
 		</tr>
 		<br>
 		<tr>
@@ -25,16 +25,16 @@
 			<td>{{ $order->descripcion }}</td>
 		</tr>
 	</table>
+	
 	<br>
-	<br>
-	<table class="table table-sitrped" style="width: 900px">
+	<table class="table table-striped" style="width: 900px">
 		<tr>
-			<th>Producto / Product</th>
-			<th>Referencia / Item</th>
-			<th>Cantidad / Quantity</th>
-			<th>¥ Valora unidad / Unit Price</th>
-			<th>¥ Valor total / Total Price</th>
-			<!--th>Actions</th-->
+			<th>Producto<br>Product</th>
+			<th>Referencia<br>Item</th>
+			<th>Cantidad<br>Quantity</th>
+			<th>¥ Valora unidad<br>Unit Price</th>
+			<th>¥ Valor total<br>Total Price</th>
+			<th>Accion<br>Action</th>
 		</tr>
 		@foreach($products as $product)
 		<tr>
@@ -43,7 +43,7 @@
 			<td>{{ $product->cantidad }}</td>
 			<td>{{ $product->precio }}</td>
 			<td>{{ $product->cantidad * $product->precio }}</td>
-			<!--td><a href="{{ route('admin.products.show') }}" class="btn btn-info">Ver Producto</a></td-->
+			<td><a href="" class="btn btn-info">Ver / View</a></td-->
 		</tr>
 		@endforeach
 	</table>

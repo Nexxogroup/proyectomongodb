@@ -21,7 +21,7 @@ class Order extends Eloquent {
 	//propiedad dentro del modelo para definir los errores, puede no ser publica
 	public $errors;
 	//indicamos a laravel cuales campos son fillables en este modelo
-	protected $fillable = array('numero', 'deliveryDate', 'proveedor', 'status', 'descripcion', 'customerId');
+	protected $fillable = array('numero', 'deliveryDate', 'proveedor', 'status', 'descripcion', 'customerId', 'deposito');
 	//indicador de elementos por pagina (paginacion)
 	protected $perPage = 10;
 

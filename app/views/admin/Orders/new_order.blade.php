@@ -4,14 +4,13 @@
 @section ('title') Nueva Orden/New order @stop
 {{--declara la seccion de contenido principal--}}
 @section ('content')
-
-<h1>Nueva Orden/New order</h1>
-
-<p><a href="{{ route('admin.users.show', $customer->id) }}" class="btn btn-primary"> << Atras / Back</a></p>
+<p><h1 style="font-family:Verdana;">Nueva Orden/New order</h1>
+<a href="{{ route('admin.users.show', $customer->id) }}" class="btn btn-primary"> << Atras / Back</a></p>
+<br>
 {{--construye un formulario entre los helpers de laravel form::open y form::close--}}
 {{--envia la informacion a la ruta specificada por medio del metodo post(informacion oculta)--}}
 {{Form::open(array('route' => 'admin.orders.store', 'method' => 'POST', 'role' => 'form'))}}
-
+{{Form::hidden('deposito', 0)}}
 {{--evaluamos si existe algún error al ingresar la informacion y lo mostramos en pantalla --}}
 @include('errors', array('errors' => $errors))
 {{Form::hidden('customerId', $customer->id)}}
