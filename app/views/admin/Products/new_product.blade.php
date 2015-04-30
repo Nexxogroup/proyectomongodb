@@ -7,9 +7,9 @@
 	<h1>Adicionar producto / Add Product</h1>
 	<br>
 	
-	{{Form::open(array('route'=>'admin.products.store', 'method'=>'POST'), array('role'=>'form'))}}
+	{{Form::open(array('route'=>'admin.products.store', 'method'=>'POST', 'files' => 'true'), array('role'=>'form'))}}
 	@include('errors', array('errors' => $errors))
-	{{Form::hidden('idOrder', Input::get('numero'))}}
+	{{Form::text('idOrder', Input::get('numero'))}}
 		<div class="row">
 			<div class="form-group col-md-4">
 				{{Form::label('producto', 'Producto')}}
@@ -56,15 +56,9 @@
 				{{Form::file('attachmentFile', array('id' => 'image', 'accept' => 'image/*', 'class' => 'form-control'))}}
 			</div>
 		</div>
-		
+
 	{{ Form::button('Adicionar / Add', array('type'=>'submit', 'class'=>'btn btn-primary')) }}
 	
 	{{ Form::close() }}
 	
 @stop
-<!--script type="text/javascript">
-	function mypath(){
-		var x = document.getElementById("image").value;
-		document.getElementById("path").innerHTML = X;
-	}
-</script-->

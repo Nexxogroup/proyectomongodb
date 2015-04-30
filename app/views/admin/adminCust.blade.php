@@ -31,35 +31,26 @@
 	<br>
 	<table class="table table-stirped" style="width: 900px">
 		<tr>
-			<th>Numero</th>
-			<th>Proveedor</th>
-			<th>Estado</th>
-			<th>Costo</th>
-			<th>Deposito</th>
-			<th>Fecha de entrega</th>
-			<th>PackingList</th>
-			<th>Acciones</th>
+			<th>Numero<br>Order number</th>
+			<th>Proveedor<br>Supplier</th>
+			<th>Estado<br>Status</th>
+			<th>Costo<br>Cost</th>
+			<th>Deposito<br>Deposit</th>
+			<th>Fecha de entrega<br>Delivery date</th>
+			<!--th><br></th-->
+			<th>Acciones<br>Actions</th>
 		</tr>
-		<tr>
-			<th>Order number</th>
-			<th>Supplier</th>
-			<th>Status</th>
-			<th>Cost</th>
-			<th>Deposit</th>
-			<th>Delivery date</th>
-			<th>PackingList</th>
-			<th>Actiones</th>
-		</tr>
+		
 		@if($orders)
 			@foreach($orders as $order)
 			<tr>
-				<td>{{ $order->numero }}</td>
-				<td>{{ $order->proveedor }}</td>
-				<td>{{ $order->status }}</td>
-				<td></td>
-				<td></td>
+				<td>{{ '#'.$order->numero 	}}</td>
+				<td>{{ $order->proveedor 	}}</td>
+				<td>{{ $order->status 		}}</td>
+				<td> <?php echo "string"; 	?></td>
+				<td>{{ $order->deposito 	}}</td>
 				<td>{{ $order->deliveryDate }}</td>
-				<td></td>
+				
 				<td><a href="{{ route('admin.orders.edit', $order->id) }}" class="btn btn-primary">Editar</a></td>
 
 			</tr>

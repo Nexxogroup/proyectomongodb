@@ -43,7 +43,7 @@
 			<td>{{ $product->cantidad }}</td>
 			<td>{{ $product->precio }}</td>
 			<td>{{ $product->cantidad * $product->precio }}</td>
-			<td><a href="" class="btn btn-info">Ver / View</a></td-->
+			<td><a id="verProducto" href="{{ route('admin.products.show', $product->id) }}" class="btn btn-info">Ver / View</a></td><!--data-target="#myProducto" data-toggle="modal"-->
 		</tr>
 		@endforeach
 	</table>
@@ -51,3 +51,29 @@
 	<br>
 	<br>
 @stop
+
+<!--script type="text/javascript">
+$(document).ready(function(){
+	//asociar un evento al boton ver
+	$('#verProducto').click(function(){
+		$.ajax({
+			//la url para la peticion
+			url: '';
+			//la informacion a enviar
+			data:{'hola'};
+			//especifica el tipo de peticion post o get
+			type:'POST';
+			//el tipo de informacion que se esperea de respuesta
+			dataType:'';
+			//codigo a ejecutar si la peticion es satisfactoria;
+			success: function(respuesta){
+				$('#myProducto').html(respuesta);
+			},
+			//codigo a ejecutar si la peticion falla;
+			error: function(xhr, status){
+				alert('Disculpe, existe un problema');
+			},
+		});
+	});
+});
+</script>

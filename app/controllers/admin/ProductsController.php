@@ -19,9 +19,10 @@ class Admin_ProductsController extends \BaseController {
 	 */
 	public function create()
 	{
-		$numero = Input::get('numero');
+		return var_dump(Input::all());
+		/*$numero = Input::get('numero');
 		$dataOrder = Order::where('numero', '=', $numero)->get();
-		return View::make('admin/products/new_product', $dataOrder);
+		return View::make('admin/products/new_product', $dataOrder);*/
 	}
 
 	public function addProducto($numero)
@@ -36,12 +37,7 @@ class Admin_ProductsController extends \BaseController {
 	 */
 	public function store()
 	{
-		return  var_dump(Input::file('attachmentFile'));
-		//http://clivern.com/how-to-create-file-upload-with-laravel/
-		//http://laraveles.com/docs/4.2/requests
-
-
-		/*//primero creamos un nuevo objeto para nuestro producto
+		//primero creamos un nuevo objeto para nuestro producto
 		$product = new Product;
 		//recibimos la data enviada por el usuario en una nueva variable
 		$data = Input::all();
@@ -50,24 +46,29 @@ class Admin_ProductsController extends \BaseController {
 			//generamos y agregamos el atributo $totalproducto al arreglo $data
 			$totalproducto = $data["cantidad"]*$data["precio"];
 			$data["totalproducto"] = "$totalproducto";
-			
+			//agregamos un grid donde almacenaremos la imagen, el cual recupera el archivo desde la ubicacion dada
 			$grid = DB::getGridFS();
-			$imagen_id = $grid->storeFile($data['attachmentFile']);	
-			//si es valida se la asignamos al cliente:
+			$name = Input::file('attachmentFile')->getRealPath();
+			$idImagen = $grid->storeFile($name);//Input::file("attachmentFile")->getRealPath());
+			//luego regreso la variable a su estado original para poder almacenar el array $data
+			$data["attachmentFile"] = Input::file('attachmentFile')->getClientOriginalName();
+			//le asignamos toda la data al cliente:
+			$data["idImagen"] = "$idImagen";
+			//return $data;
 			$product->fill($data);
 			//y lo guardamos
 			$product->save();
-			
+			//buscamos los datos de la orden a la que pertenece este producto
 			$order = Order::where('numero', '=', $product->idOrder)->first();
+			//buscamos todos los productos pertenecientes a esta orden
 			$productlist = Product::where('idOrder', '=', $product->idOrder)->paginate();
-			//retornamos la vista de la accion show para mostrar la información guardada
-			return View::make('admin/products/productlist', array('productlist' => $productlist, 'order' => $order));//)->with('order', $product->idOrder);
+			//retornamos la vi ta de la accion show para mostrar la información guardada
+			return View::make('admin/products/productlist', array('productlist' => $productlist, 'order' => $order));//*/
 		}else {
 			//si contiene error, regresara a la vista de la accion create con los datos y errores encontrados
 			return Redirect::route('admin.products.create')->with('order', $product->idOrder)->withInput()->withErrors($product->errors);
-		}*/
+		}
 	}
-
 
 	/**
 	 * Display the specified resource.
@@ -77,7 +78,13 @@ class Admin_ProductsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return " muestra la informacion del producto";
+		//se recupera el elemento que se desea mostrar con la funcion find por medio del parametro $id
+		$product = Product::find($id);
+		//recuperamos la imagen con
+		$grid = DB::getGridFS();
+		$imagen = $grid->findOne($product->idImagen);//new MongoId($product->idImagen));//$grid->findOne($product->idImagen);
+		header('Content-type: image/jpg;');
+		echo $imagen->getBytes();
 	}
 
 
@@ -115,6 +122,4 @@ class Admin_ProductsController extends \BaseController {
 	{
 		//
 	}
-
-
 }

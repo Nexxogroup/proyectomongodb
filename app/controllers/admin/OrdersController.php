@@ -107,14 +107,20 @@ class Admin_OrdersController extends \BaseController {
 	{
 		//return 'aqui editamos la orden';
 		$order = Order::find($id);
+		//revisamos si la orden existe
 		if (is_null($order))
 		{
+			// en caso que no exista genera pagina de error
 			App::abort(404);
 		}
+		//en caso que exista se empaqueta la ruta y el parametro ID
 		$form_data = array('route' => array('admin.orders.update', $order->id), 'method' => 'PATCH');
+		//se envia una variable para el manejo del nombre del formulario
 		$action = 'Editar';
-
-		return View::make('admin/adminOrder', compact('order', 'form_data'));
+		//añadimos los productos pertenecientes a esta orden
+		$productos = Product::where('idOrder', '=', $order->numero)->paginate();
+		//retorna el formulario de editar con los parametros
+		return View::make('admin/adminOrder', compact('order', 'productos', 'form_data'));
 	}
 
 
