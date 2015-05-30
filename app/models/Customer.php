@@ -11,14 +11,12 @@ class Customer extends Eloquent implements UserInterface, RemindableInterface{
 
 	use UserTrait, RemindableTrait;
 	/**
-	 * The database table used by the model.
+	 * La tabla o coleccion de la DB usada por el model.
 	 *
 	 * @var string
 	 */
 	protected $collection = 'customers';
-
 	protected $connection = 'mongodb';
-
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
